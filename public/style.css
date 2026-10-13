@@ -1,0 +1,1178 @@
+/* =====================================================
+   KIDCORE / Y2K VIBRANT THEME
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --pink: #ff4fa3;
+    --hot-pink: #ff1493;
+    --yellow: #ffe45e;
+    --orange: #ff914d;
+    --blue: #4cc9ff;
+    --purple: #9b5cff;
+    --green: #62e66b;
+    --red: #ff5c5c;
+
+    --dark: #29234a;
+    --white: #fffdf7;
+    --cream: #fff7d6;
+
+    --border: #29234a;
+    --shadow: 7px 7px 0 #29234a;
+}
+
+/* =====================================================
+   BODY
+   ===================================================== */
+
+body {
+    min-height: 100vh;
+
+    color: var(--dark);
+    font-family:
+        "Trebuchet MS",
+        "Comic Sans MS",
+        Arial,
+        sans-serif;
+
+    line-height: 1.6;
+
+    background-color: #ffd6ec;
+
+    /* playful polka-dot background */
+    background-image:
+        radial-gradient(#ff8ac5 2px, transparent 2px),
+        radial-gradient(#fff176 2px, transparent 2px);
+
+    background-size: 32px 32px;
+    background-position:
+        0 0,
+        16px 16px;
+
+    padding-bottom: 60px;
+}
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    background: var(--yellow);
+
+    border-bottom: 4px solid var(--border);
+
+    box-shadow: 0 5px 0 rgba(41, 35, 74, 0.25);
+}
+
+nav::before {
+    content: "★";
+
+    color: var(--hot-pink);
+    font-size: 24px;
+
+    animation: wiggle 1.5s infinite ease-in-out;
+}
+
+nav::after {
+    content: "★";
+
+    color: var(--purple);
+    font-size: 24px;
+
+    animation: wiggle 1.8s infinite ease-in-out reverse;
+}
+
+nav a {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 9px 17px;
+
+    color: var(--dark);
+    background: var(--white);
+
+    border: 3px solid var(--border);
+    border-radius: 999px;
+
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 15px;
+
+    box-shadow: 4px 4px 0 var(--border);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+nav a:nth-of-type(1):hover {
+    background: var(--blue);
+}
+
+nav a:nth-of-type(2):hover {
+    background: var(--green);
+}
+
+nav a:nth-of-type(3):hover {
+    background: var(--pink);
+}
+
+nav a:nth-of-type(4):hover {
+    background: var(--orange);
+}
+
+nav a:hover {
+    color: var(--dark);
+
+    transform: translate(3px, 3px) rotate(-2deg);
+    box-shadow: 1px 1px 0 var(--border);
+}
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+
+body>h1,
+body>p,
+body>form,
+body>ul {
+    width: min(720px, calc(100% - 40px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    position: relative;
+
+    margin-top: 65px;
+    margin-bottom: 18px;
+
+    display: inline-block;
+
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1;
+
+    font-weight: 1000;
+
+    color: var(--purple);
+
+    /* chunky cartoon text */
+    text-shadow:
+        3px 3px 0 var(--white),
+        6px 6px 0 var(--border);
+
+    transform: rotate(-2deg);
+
+    animation: titleBounce 3s infinite ease-in-out;
+}
+
+h1::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: -25px;
+    right: -35px;
+
+    color: var(--hot-pink);
+    font-size: 32px;
+
+    text-shadow: 2px 2px 0 var(--border);
+
+    animation: spin 4s infinite linear;
+}
+
+body>p {
+    font-size: 18px;
+    font-weight: 700;
+
+    color: var(--dark);
+
+    margin-bottom: 20px;
+}
+
+/* =====================================================
+   CARDS / PANELS
+   ===================================================== */
+
+form,
+#guestbook-list li {
+    background: var(--white);
+
+    border: 4px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+/* =====================================================
+   FORMS
+   ===================================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    margin-top: 35px;
+    padding: 28px;
+
+    position: relative;
+
+    overflow: visible;
+}
+
+form::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: -22px;
+    left: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--pink);
+
+    border: 3px solid var(--border);
+    border-radius: 50%;
+
+    color: white;
+    font-size: 25px;
+
+    transform: rotate(-12deg);
+}
+
+form::after {
+    content: "✿";
+
+    position: absolute;
+
+    right: 20px;
+    bottom: -22px;
+
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--green);
+
+    border: 3px solid var(--border);
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    transform: rotate(12deg);
+}
+
+label {
+    margin-top: 8px;
+
+    color: var(--purple);
+
+    font-size: 15px;
+    font-weight: 1000;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: var(--dark);
+    background: #f5ecff;
+
+    border: 3px solid var(--border);
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    outline: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+    background: #e4f9ff;
+
+    transform: rotate(-1deg);
+
+    box-shadow: 5px 5px 0 var(--blue);
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+button {
+    position: relative;
+
+    border: 3px solid var(--border);
+    border-radius: 14px;
+
+    padding: 12px 20px;
+
+    color: var(--dark);
+    background: var(--yellow);
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 1000;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0 var(--border);
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.15s ease;
+}
+
+button:hover {
+    background: var(--green);
+
+    transform: translate(-2px, -2px) rotate(-2deg);
+
+    box-shadow: 7px 7px 0 var(--border);
+}
+
+button:active {
+    transform: translate(4px, 4px);
+
+    box-shadow: 1px 1px 0 var(--border);
+}
+
+form button {
+    margin-top: 15px;
+
+    background: var(--pink);
+}
+
+form button:hover {
+    background: var(--hot-pink);
+    color: white;
+}
+
+/* =====================================================
+   GUESTBOOK
+   ===================================================== */
+
+#guestbook-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+#guestbook-list li {
+    position: relative;
+
+    padding: 20px;
+
+    font-size: 16px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#guestbook-list li:nth-child(4n + 1) {
+    background: #fff3a6;
+}
+
+#guestbook-list li:nth-child(4n + 2) {
+    background: #bff4ff;
+}
+
+#guestbook-list li:nth-child(4n + 3) {
+    background: #ffc6e6;
+}
+
+#guestbook-list li:nth-child(4n + 4) {
+    background: #c9ffca;
+}
+
+#guestbook-list li:hover {
+    transform: translateY(-5px) rotate(1deg);
+
+    box-shadow:
+        9px 9px 0 var(--border);
+}
+
+#guestbook-list li strong {
+    color: var(--hot-pink);
+
+    font-size: 18px;
+}
+
+/* =====================================================
+   ERROR MESSAGES
+   ===================================================== */
+
+#list-error,
+#form-error {
+    display: block;
+
+    color: var(--red);
+
+    font-weight: 900;
+
+    margin-top: 10px;
+}
+
+#list-error:empty,
+#form-error:empty {
+    display: none;
+}
+
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+/* =====================================================
+   DASHBOARD - KIDCORE STYLE
+   ===================================================== */
+
+/* Dashboard page layout */
+body:has(#logout-button) {
+    background-color: #c8f7ff;
+
+    background-image:
+        radial-gradient(#ff70b7 2px, transparent 2px),
+        radial-gradient(#ffe45e 2px, transparent 2px);
+
+    background-size: 34px 34px;
+    background-position:
+        0 0,
+        17px 17px;
+}
+
+/* Dashboard heading */
+body:has(#logout-button) h1 {
+    width: min(720px, calc(100% - 40px));
+
+    margin: 65px auto 15px;
+
+    color: #9b5cff;
+
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+
+    text-align: center;
+
+    transform: rotate(-2deg);
+
+    text-shadow:
+        3px 3px 0 #ffffff,
+        6px 6px 0 #29234a;
+}
+
+/* Dashboard heading decoration */
+body:has(#logout-button) h1::before {
+    content: "🌈 ";
+
+    font-size: 0.65em;
+}
+
+body:has(#logout-button) h1::after {
+    content: " ⭐";
+
+    position: static;
+
+    color: #ff1493;
+
+    animation: none;
+}
+
+/* Dashboard message */
+body:has(#logout-button) h1+p {
+    width: min(650px, calc(100% - 40px));
+
+    margin: 25px auto;
+
+    padding: 22px;
+
+    background: #fffdf7;
+
+    border: 4px solid #29234a;
+    border-radius: 18px;
+
+    box-shadow: 7px 7px 0 #29234a;
+
+    text-align: center;
+
+    color: #29234a;
+
+    font-size: 19px;
+    font-weight: 900;
+}
+
+/* Add cute decoration to logged-in message */
+body:has(#logout-button) h1+p::before {
+    content: "🎉 ";
+
+    font-size: 25px;
+}
+
+body:has(#logout-button) h1+p::after {
+    content: " 🎉";
+
+    font-size: 25px;
+}
+
+/* Dashboard button area */
+body:has(#logout-button) #delete-button,
+body:has(#logout-button) #logout-button {
+    display: inline-block;
+
+    margin-top: 25px;
+    margin-right: 8px;
+
+    min-width: 150px;
+
+    padding: 14px 22px;
+
+    border: 4px solid #29234a;
+    border-radius: 15px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 1000;
+
+    box-shadow: 5px 5px 0 #29234a;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* Log Out button */
+body:has(#logout-button) #logout-button {
+    background: #ff70b7;
+    color: #29234a;
+}
+
+body:has(#logout-button) #logout-button:hover {
+    background: #ff1493;
+    color: white;
+
+    transform: translate(-2px, -2px) rotate(-2deg);
+
+    box-shadow: 8px 8px 0 #29234a;
+}
+
+/* Delete button */
+body:has(#logout-button) #delete-button {
+    background: #ff5c5c;
+    color: white;
+}
+
+body:has(#logout-button) #delete-button:hover {
+    background: #ff8585;
+
+    transform: translate(-2px, -2px) rotate(2deg);
+
+    box-shadow: 8px 8px 0 #29234a;
+}
+
+/* Button click effect */
+body:has(#logout-button) #delete-button:active,
+body:has(#logout-button) #logout-button:active {
+    transform: translate(4px, 4px);
+
+    box-shadow: 1px 1px 0 #29234a;
+}
+
+/* =====================================================
+   DASHBOARD DECORATIONS
+   ===================================================== */
+
+body:has(#logout-button)::before {
+    content: "★  ✦  🌈  ♡  ✿";
+
+    position: fixed;
+
+    top: 130px;
+    left: 20px;
+
+    color: #ff1493;
+
+    font-size: 27px;
+    letter-spacing: 8px;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    animation: dashboardFloat 4s ease-in-out infinite;
+}
+
+body:has(#logout-button)::after {
+    content: "♡  ⭐  ✦  🌸";
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 100px;
+
+    color: #9b5cff;
+
+    font-size: 27px;
+    letter-spacing: 8px;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    animation: dashboardFloat 5s ease-in-out infinite reverse;
+}
+
+@keyframes dashboardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* =====================================================
+   MOBILE DASHBOARD
+   ===================================================== */
+
+@media (max-width: 600px) {
+    body:has(#logout-button) h1 {
+        width: calc(100% - 30px);
+
+        margin-top: 45px;
+
+        font-size: 2.8rem;
+    }
+
+    body:has(#logout-button) h1+p {
+        width: calc(100% - 30px);
+
+        padding: 18px;
+
+        font-size: 16px;
+    }
+
+    body:has(#logout-button) #delete-button,
+    body:has(#logout-button) #logout-button {
+        min-width: 130px;
+
+        padding: 12px 16px;
+    }
+
+    body:has(#logout-button)::before,
+    body:has(#logout-button)::after {
+        display: none;
+    }
+}
+
+#delete-button,
+#logout-button {
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+#delete-button {
+    background: var(--red);
+}
+
+#delete-button:hover {
+    background: #ff8080;
+}
+
+#logout-button {
+    background: var(--blue);
+}
+
+#logout-button:hover {
+    background: var(--purple);
+    color: white;
+}
+
+/* =====================================================
+   404 PAGE
+   ===================================================== */
+
+/* Gives the 404 page a more playful appearance */
+
+body:has(h1:first-of-type) h1 {
+    color: var(--hot-pink);
+}
+
+body:has(h1:first-of-type) h1::before {
+    content: "☹ ";
+
+    color: var(--purple);
+}
+
+/* =====================================================
+   DECORATIVE FLOATING EFFECT
+   ===================================================== */
+
+body::before {
+    content: "★  ✦  ♡  ✿  ★";
+
+    position: fixed;
+
+    top: 120px;
+    left: 15px;
+
+    color: var(--hot-pink);
+
+    font-size: 24px;
+    letter-spacing: 8px;
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    transform: rotate(-10deg);
+
+    animation: floaty 4s infinite ease-in-out;
+}
+
+body::after {
+    content: "♡  ★  ✦  ✿";
+
+    position: fixed;
+
+    right: 15px;
+    bottom: 80px;
+
+    color: var(--purple);
+
+    font-size: 25px;
+    letter-spacing: 7px;
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    transform: rotate(10deg);
+
+    animation: floaty 5s infinite ease-in-out reverse;
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes titleBounce {
+
+    0%,
+    100% {
+        transform: rotate(-2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(2deg) translateY(-4px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floaty {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+    nav {
+        padding: 12px;
+
+        gap: 7px;
+    }
+
+    nav::before,
+    nav::after {
+        display: none;
+    }
+
+    nav a {
+        padding: 8px 12px;
+
+        font-size: 13px;
+
+        box-shadow: 3px 3px 0 var(--border);
+    }
+
+    body>h1,
+    body>p,
+    body>form,
+    body>ul {
+        width: calc(100% - 28px);
+    }
+
+    h1 {
+        margin-top: 50px;
+
+        font-size: clamp(2.5rem, 14vw, 4rem);
+    }
+
+    h1::after {
+        right: -25px;
+        font-size: 25px;
+    }
+
+    form {
+        padding: 22px 18px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #delete-button,
+    #logout-button {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    body::before,
+    body::after {
+        display: none;
+    }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* =====================================================
+       DASHBOARD - KIDCORE STYLE
+       ===================================================== */
+
+    /* Dashboard page layout */
+    body:has(#logout-button) {
+        background-color: #c8f7ff;
+
+        background-image:
+            radial-gradient(#ff70b7 2px, transparent 2px),
+            radial-gradient(#ffe45e 2px, transparent 2px);
+
+        background-size: 34px 34px;
+        background-position:
+            0 0,
+            17px 17px;
+    }
+
+    /* Dashboard heading */
+    body:has(#logout-button) h1 {
+        width: min(720px, calc(100% - 40px));
+
+        margin: 65px auto 15px;
+
+        color: #9b5cff;
+
+        font-size: clamp(2.8rem, 7vw, 4.5rem);
+
+        text-align: center;
+
+        transform: rotate(-2deg);
+
+        text-shadow:
+            3px 3px 0 #ffffff,
+            6px 6px 0 #29234a;
+    }
+
+    /* Dashboard heading decoration */
+    body:has(#logout-button) h1::before {
+        content: "🌈 ";
+
+        font-size: 0.65em;
+    }
+
+    body:has(#logout-button) h1::after {
+        content: " ⭐";
+
+        position: static;
+
+        color: #ff1493;
+
+        animation: none;
+    }
+
+    /* Dashboard message */
+    body:has(#logout-button) h1+p {
+        width: min(650px, calc(100% - 40px));
+
+        margin: 25px auto;
+
+        padding: 22px;
+
+        background: #fffdf7;
+
+        border: 4px solid #29234a;
+        border-radius: 18px;
+
+        box-shadow: 7px 7px 0 #29234a;
+
+        text-align: center;
+
+        color: #29234a;
+
+        font-size: 19px;
+        font-weight: 900;
+    }
+
+    /* Add cute decoration to logged-in message */
+    body:has(#logout-button) h1+p::before {
+        content: "🎉 ";
+
+        font-size: 25px;
+    }
+
+    body:has(#logout-button) h1+p::after {
+        content: " 🎉";
+
+        font-size: 25px;
+    }
+
+    /* Dashboard button area */
+    body:has(#logout-button) #delete-button,
+    body:has(#logout-button) #logout-button {
+        display: inline-block;
+
+        margin-top: 25px;
+        margin-right: 8px;
+
+        min-width: 150px;
+
+        padding: 14px 22px;
+
+        border: 4px solid #29234a;
+        border-radius: 15px;
+
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 1000;
+
+        box-shadow: 5px 5px 0 #29234a;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+    }
+
+    /* Log Out button */
+    body:has(#logout-button) #logout-button {
+        background: #ff70b7;
+        color: #29234a;
+    }
+
+    body:has(#logout-button) #logout-button:hover {
+        background: #ff1493;
+        color: white;
+
+        transform: translate(-2px, -2px) rotate(-2deg);
+
+        box-shadow: 8px 8px 0 #29234a;
+    }
+
+    /* Delete button */
+    body:has(#logout-button) #delete-button {
+        background: #ff5c5c;
+        color: white;
+    }
+
+    body:has(#logout-button) #delete-button:hover {
+        background: #ff8585;
+
+        transform: translate(-2px, -2px) rotate(2deg);
+
+        box-shadow: 8px 8px 0 #29234a;
+    }
+
+    /* Button click effect */
+    body:has(#logout-button) #delete-button:active,
+    body:has(#logout-button) #logout-button:active {
+        transform: translate(4px, 4px);
+
+        box-shadow: 1px 1px 0 #29234a;
+    }
+
+    /* =====================================================
+       DASHBOARD DECORATIONS
+       ===================================================== */
+
+    body:has(#logout-button)::before {
+        content: "★  ✦  🌈  ♡  ✿";
+
+        position: fixed;
+
+        top: 130px;
+        left: 20px;
+
+        color: #ff1493;
+
+        font-size: 27px;
+        letter-spacing: 8px;
+
+        opacity: 0.7;
+
+        pointer-events: none;
+
+        animation: dashboardFloat 4s ease-in-out infinite;
+    }
+
+    body:has(#logout-button)::after {
+        content: "♡  ⭐  ✦  🌸";
+
+        position: fixed;
+
+        right: 20px;
+        bottom: 100px;
+
+        color: #9b5cff;
+
+        font-size: 27px;
+        letter-spacing: 8px;
+
+        opacity: 0.7;
+
+        pointer-events: none;
+
+        animation: dashboardFloat 5s ease-in-out infinite reverse;
+    }
+
+    @keyframes dashboardFloat {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(-5deg);
+        }
+
+        50% {
+            transform: translateY(-15px) rotate(5deg);
+        }
+    }
+
+    /* =====================================================
+       MOBILE DASHBOARD
+       ===================================================== */
+
+    @media (max-width: 600px) {
+        body:has(#logout-button) h1 {
+            width: calc(100% - 30px);
+
+            margin-top: 45px;
+
+            font-size: 2.8rem;
+        }
+
+        body:has(#logout-button) h1+p {
+            width: calc(100% - 30px);
+
+            padding: 18px;
+
+            font-size: 16px;
+        }
+
+        body:has(#logout-button) #delete-button,
+        body:has(#logout-button) #logout-button {
+            min-width: 130px;
+
+            padding: 12px 16px;
+        }
+
+        body:has(#logout-button)::before,
+        body:has(#logout-button)::after {
+            display: none;
+        }
+    }
+}
