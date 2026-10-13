@@ -253,7 +253,9 @@ app.get('/api/space', async (req, res) => {
         return res.status(400).json({ error: dateError });
     }
 
-
+    const cacheKey = date || 'today';
+    const cached = apodCache.get(cacheKey);
+    const isFresh = cacheKey !== 'today' || Date.now() - cached?.savedAt < TODAY_MAX_AGE;
 
 
     if (cached && isFresh) {
@@ -261,9 +263,7 @@ app.get('/api/space', async (req, res) => {
         return res.json(cached.data);
     }
 
-    const cacheKey = date || 'today';
-    const cached = apodCache.get(cacheKey);
-    const isFresh = cacheKey !== 'today' || Date.now() - cached?.savedAt < TODAY_MAX_AGE;
+
 
     // Validation goes here in Part 4
 
