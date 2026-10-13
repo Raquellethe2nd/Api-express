@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bf8c2b09-137a-4359-bb48-2a5f7e3f61b3",
+    "name": "Rachel O",
+    "msg": "ice cream",
+    "createdAt": "2026-10-02T17:02:00.190Z"
+  },
+  {
+    "id": "87912dd4-fe27-4f8a-be25-0cd2a72896aa",
+    "name": "rachel",
+    "msg": "sushi",
+    "createdAt": "2026-10-02T17:07:34.705Z"
+  },
+  {
+    "id": "a83dad8a-464a-4272-9993-1724ea77a424",
+    "name": "rachel",
+    "msg": "yayy",
+    "createdAt": "2026-10-02T17:08:37.450Z"
+  },
+  {
+    "id": "2014b528-275c-4ade-bab6-7c6fc1208c43",
+    "name": "Rachel O",
+    "msg": "carrot cake",
+    "createdAt": "2026-10-06T17:33:25.928Z"
+  }
+]
