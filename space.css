@@ -1,0 +1,273 @@
+:root {
+    --night: #17121f;
+    --purple: #362044;
+    --pink: #ff8acb;
+    --mint: #9df7e5;
+    --yellow: #f9d66b;
+    --lilac: #c4a4ff;
+    --white: #fff3ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 30px 20px 60px;
+    color: var(--white);
+    font-family: "Trebuchet MS", sans-serif;
+    background-color: var(--night);
+    background-image:
+        radial-gradient(circle at 10% 20%, #ff8acb22 0 3px, transparent 4px),
+        radial-gradient(circle at 85% 15%, #c4a4ff33 0 2px, transparent 3px),
+        radial-gradient(circle at 75% 75%, #9df7e522 0 3px, transparent 4px),
+        radial-gradient(circle at 20% 85%, #f9d66b22 0 2px, transparent 3px),
+        linear-gradient(145deg, #17121f, #251631 55%, #17121f);
+    background-size: 90px 90px, 120px 120px, 100px 100px, 140px 140px, cover;
+}
+
+/* ===== NAVIGATION ===== */
+
+body>a {
+    display: inline-block;
+    margin: 5px 4px 25px 0;
+    padding: 10px 15px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: var(--purple);
+    border: 2px solid var(--lilac);
+    border-radius: 14px 14px 14px 4px;
+    box-shadow: 3px 3px 0 var(--pink);
+    transition: transform 0.2s, background 0.2s;
+}
+
+body>a:hover {
+    color: var(--night);
+    background: var(--mint);
+    border-color: var(--mint);
+    transform: translateY(-3px) rotate(-2deg);
+    box-shadow: 3px 5px 0 var(--pink);
+}
+
+/* ===== PAGE TITLE ===== */
+
+h1 {
+    max-width: 800px;
+    margin: 25px auto 12px;
+    color: var(--pink);
+    text-align: center;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    line-height: 1.15;
+    text-shadow:
+        3px 3px 0 var(--purple),
+        5px 5px 0 #00000066;
+}
+
+h1::before {
+    content: "☾ ";
+    color: var(--lilac);
+}
+
+h1::after {
+    content: " ✦";
+    color: var(--yellow);
+}
+
+h1+form,
+#status,
+#result {
+    width: min(100%, 760px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ===== DATE PICKER CARD ===== */
+
+#space-form {
+    margin-top: 28px;
+    padding: 24px;
+    background: #24192f;
+    border: 2px dashed var(--pink);
+    border-radius: 22px 22px 22px 6px;
+    box-shadow: 7px 7px 0 #0c0912;
+    text-align: center;
+}
+
+#space-form label {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--mint);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+input[type="date"] {
+    display: inline-block;
+    max-width: 100%;
+    padding: 11px 13px;
+    color: var(--white);
+    color-scheme: dark;
+    background: #17121f;
+    border: 2px solid var(--lilac);
+    border-radius: 12px;
+    font: inherit;
+}
+
+input[type="date"]:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 3px;
+}
+
+/* ===== CANDY BUTTON ===== */
+
+button {
+    display: inline-block;
+    margin: 10px 4px 0;
+    padding: 12px 20px;
+    color: var(--night);
+    background: var(--pink);
+    border: 2px solid var(--pink);
+    border-radius: 12px 12px 12px 4px;
+    box-shadow: 4px 4px 0 var(--lilac);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--lilac);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 4px;
+}
+
+/* ===== STATUS MESSAGE ===== */
+
+#status {
+    min-height: 1.5em;
+    margin-top: 24px;
+    margin-bottom: 18px;
+    color: var(--mint);
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ===== NASA PICTURE COLLECTIBLE ===== */
+
+#result {
+    overflow: hidden;
+    padding: 24px;
+    background: #24192f;
+    border: 3px solid var(--lilac);
+    border-radius: 25px 25px 25px 8px;
+    box-shadow:
+        8px 8px 0 var(--pink),
+        12px 12px 0 #0c0912;
+}
+
+#result h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--yellow);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    line-height: 1.25;
+}
+
+#date-shown {
+    display: inline-block;
+    padding: 7px 12px;
+    color: var(--night);
+    background: var(--mint);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#picture {
+    display: block;
+    width: 100%;
+    max-height: 600px;
+    margin: 18px auto;
+    object-fit: contain;
+    background: #100c16;
+    border: 3px solid var(--pink);
+    border-radius: 16px;
+}
+
+#description {
+    color: #f2e6f7;
+    font-size: 1rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+#nasa-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 15px;
+    color: var(--night);
+    background: var(--yellow);
+    border: 2px solid var(--yellow);
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+}
+
+#nasa-link:hover {
+    color: var(--night);
+    background: var(--mint);
+    border-color: var(--mint);
+    transform: rotate(-1deg);
+}
+
+/* ===== TINY SCREEN FRIENDLINESS ===== */
+
+@media (max-width: 480px) {
+    body {
+        padding: 18px 14px 40px;
+    }
+
+    body>a {
+        margin-bottom: 12px;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+    }
+
+    #space-form,
+    #result {
+        padding: 17px;
+    }
+
+    input[type="date"] {
+        width: 100%;
+    }
+
+    #picture {
+        max-height: 400px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
