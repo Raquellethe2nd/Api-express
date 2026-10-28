@@ -1,3 +1,6 @@
+
+let currentUser = null;
+
 async function deleteEntry(id) {
     if (!confirm('Delete this message?')) return;
     const listError = document.querySelector('#list-error');
@@ -6,11 +9,13 @@ async function deleteEntry(id) {
         const response = await fetch(`/api/guestbook/${encodeURIComponent(id)}`, {
             method: 'DELETE'
         });
+
         if (!response.ok) {
             const data = await response.json().catch(() => ({}));
             listError.textContent = data.error || 'Could not delete that message.';
             return;
         }
+
         loadMessages();
     } catch (err) {
         listError.textContent = 'Could not reach the server. Check your connection.';
@@ -24,13 +29,15 @@ async function saveEdit(entry, newMsg) {
         const response = await fetch(`/api/guestbook/${encodeURIComponent(entry.id)}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: entry.name, msg: newMsg })
+            body: JSON.stringify({ msg: newMsg })
         });
+
         if (!response.ok) {
             const data = await response.json().catch(() => ({}));
             listError.textContent = data.error || 'Could not save your changes.';
             return;
         }
+
         loadMessages();
     } catch (err) {
         listError.textContent = 'Could not reach the server. Check your connection.';
@@ -63,6 +70,22 @@ async function loadMessages() {
     listError.textContent = '';
 
     try {
+        if (!currentUser) {
+            const userResponse = await fetch('/api/whoami');
+
+            if (!userResponse.ok) {
+                listError.textContent = 'Could not identify the logged-in user.';
+                return;
+            }
+
+            currentUser = await userResponse.json();
+
+            if (!currentUser.loggedIn) {
+                listError.textContent = 'Please log in first.';
+                return;
+            }
+        }
+
         const response = await fetch('/api/guestbook');
         const entries = await response.json().catch(() => ({}));
 
@@ -73,6 +96,7 @@ async function loadMessages() {
 
         const list = document.querySelector('#guestbook-list');
         list.innerHTML = '';
+
         [...entries].reverse().forEach(entry => {
             const li = document.createElement('li');
 
@@ -93,24 +117,30 @@ async function loadMessages() {
                 li.append(edited);
             }
 
-            const editButton = document.createElement('button');
-            editButton.type = 'button';
-            editButton.textContent = 'Edit';
-            editButton.addEventListener('click', () => startEdit(li, entry));
+            const canEdit =
+                entry.authorId === currentUser.userId ||
+                currentUser.role === 'admin';
 
-            const deleteButton = document.createElement('button');
-            deleteButton.type = 'button';
-            deleteButton.textContent = 'Delete';
-            deleteButton.addEventListener('click', () => deleteEntry(entry.id));
+            if (canEdit) {
+                const editButton = document.createElement('button');
+                editButton.type = 'button';
+                editButton.textContent = 'Edit';
+                editButton.addEventListener('click', () => startEdit(li, entry));
 
-            li.append(editButton, deleteButton);
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', () => deleteEntry(entry.id));
+
+                li.append(editButton, deleteButton);
+            }
+
             list.append(li);
         });
     } catch (err) {
         listError.textContent = 'could not reach the server. check your connection.';
     }
 }
-
 
 document.querySelector('#guestbook-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -123,8 +153,8 @@ document.querySelector('#guestbook-form').addEventListener('submit', async (e) =
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                name: document.querySelector('#name').value,
-                msg: document.querySelector('#msg').value
+                msg: document.querySelector('#msg').value,
+                website: document.querySelector('#website').value
             })
         });
 
@@ -142,7 +172,4 @@ document.querySelector('#guestbook-form').addEventListener('submit', async (e) =
     }
 });
 
-
-
-
-loadMessages(); 
+loadMessages();

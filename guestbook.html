@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -16,19 +15,25 @@
         <a href="/guestbook">Guestbook</a>
         <a href="/dashboard">Dashboard</a>
     </nav>
+
     <h1>Guestbook</h1>
 
     <ul id="guestbook-list"></ul>
     <p id="list-error" role="alert"></p>
-    <form id="guestbook-form">
-        <label for="name">Name</label>
-        <input id="name" type="text" name="name" maxlength="40" required />
 
+    <form id="guestbook-form">
         <label for="msg">Message</label>
         <textarea id="msg" name="msg" maxlength="280" required></textarea>
 
+        <!-- Honeypot: hidden from people, bots fill it in -->
+        <div class="hp-field" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
         <button type="submit">Post</button>
     </form>
+
     <p id="form-error" role="alert"></p>
 
     <script src="guestbook.js"></script>

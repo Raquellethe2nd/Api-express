@@ -1176,3 +1176,12 @@ body::after {
         }
     }
 }
+
+/* Moves the honeypot off-screen, where no person will see it */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
